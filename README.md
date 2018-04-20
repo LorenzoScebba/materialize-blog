@@ -13,17 +13,17 @@ A simple website capable of handling article creation, deletion, modify and upda
 
 [database]\
 servername = localhost\
-username = <YOUR-DATABASE-USERNAME>\
-password = <YOUR-DATABASE-PASSWOD>\
-dbname = <YUOR-DATABASE-NAME>
+username = YOUR-DATABASE-USERNAME\
+password = YOUR-DATABASE-PASSWOD\
+dbname = YOUR-DATABASE-NAME
 
 [MailGun]\
-MailGunKey = <YOUR-MAILGUN-KEY>\
-MailGunDomain = <YOUR-MAILGUN-DOMAIN>
+MailGunKey = YOUR-MAILGUN-KEY\
+MailGunDomain = YOUR-MAILGUN-DOMAIN
 
 [Site]\
-URL = <YOUR-WEBSITE-URL> *Without https://*
+URL = YOUR-WEBSITE-URL *Without https://*
 
 [Crypt]\
-salt = <YOUR-SALT>
+salt = YOUR-SALT
 
