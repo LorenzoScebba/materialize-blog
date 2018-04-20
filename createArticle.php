@@ -34,7 +34,7 @@ include_once 'actions/loggedInChecker.php';
             </div>
 
             <div class="row input-field">
-                <input type="text" placeholder="Article image" name="image">
+                <input type="text" placeholder="Article image" name="img">
             </div>
 
             <div class="row input-field">
