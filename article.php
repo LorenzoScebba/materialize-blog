@@ -3,10 +3,21 @@
 include 'class/database.php';
 $db = new database();
 ?>
+<?php
+
+if(isset($_GET["id"])) {
+    $article = $db->getArticle($_GET["id"]);
+    if (!$article instanceof article) {
+        $article = new article("ERROR","ERROR","ERROR, no article found","ERROR","ERROR","ERROR","ERROR");
+    }
+}else{
+    $article = new article("ERROR","ERROR","ERROR, no article found","ERROR","ERROR","ERROR","ERROR");
+}
+?>
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Welcome!</title>
+    <title><?php echo $article->titolo ?></title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <?php include '_components/_css.php' ?>
@@ -20,17 +31,7 @@ $db = new database();
     <div class="container">
         <!-- CONTENT GOES HERE  -->
 
-        <?php
 
-            if(isset($_GET["id"])) {
-                $article = $db->getArticle($_GET["id"]);
-                if (!$article instanceof article) {
-                    $article = new article("ERROR","ERROR","ERROR, no article found","ERROR","ERROR","ERROR","ERROR");
-                }
-            }else{
-                $article = new article("ERROR","ERROR","ERROR, no article found","ERROR","ERROR","ERROR","ERROR");
-            }
-        ?>
 
         <h4 class="center-align" style="margin-bottom: 1em"><?php echo $article->titolo ?></h4>
 

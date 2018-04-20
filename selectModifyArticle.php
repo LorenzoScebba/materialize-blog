@@ -8,7 +8,7 @@ $db = new database();
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Welcome!</title>
+    <title>Selezione Articolo da Modificare!</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <?php include '_components/_css.php' ?>
