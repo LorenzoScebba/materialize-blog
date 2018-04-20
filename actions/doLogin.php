@@ -33,17 +33,17 @@ if ($db->userExist($username, $password)) {
     //echo "user exist";
     $_SESSION["isLoggedIn"] = true;
     $_SESSION["username"] = $username;
-    echo "<meta http-equiv=\"refresh\" content=\"0;URL=".$config["URL"]."/index.php\">";
+    echo "<meta http-equiv=\"refresh\" content=\"0;URL=http://".$config["URL"]."/index.php\">";
     exit();
 } else {
     //echo "user does not exist";
     if ($db->nickameExist($username)) {
         echo "Wrong password, redirecting...";
-        echo "<meta http-equiv=\"refresh\" content=\"1;URL=".$config["URL"]."/login.php\">";
+        echo "<meta http-equiv=\"refresh\" content=\"1;URL=http://".$config["URL"]."/login.php\">";
         exit();
     } else {
         echo "User not present in db, redirecting...";
-        echo "<meta http-equiv=\"refresh\" content=\"1;URL=".$config["URL"]."/login.php\">";
+        echo "<meta http-equiv=\"refresh\" content=\"1;URL=http://".$config["URL"]."/login.php\">";
         exit();
     }
 }
