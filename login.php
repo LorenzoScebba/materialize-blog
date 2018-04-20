@@ -1,5 +1,5 @@
 <?php
-session_start();
+if (session_status() == PHP_SESSION_NONE) {     session_start(); }
 $config = parse_ini_file($_SERVER['DOCUMENT_ROOT'] . "/../private/config.ini");
 
 if (isset($_SESSION["username"]) || isset($_SESSION["isLoggedIn"])) {

@@ -37,6 +37,20 @@ class database
         }
     }
 
+    public function getAllArticles()
+    {
+        $articles = array();
+
+        $result = $this->connection->query("SELECT * FROM articles WHERE 1");
+        if ($result->num_rows > 0) {
+            while ($row = $result->fetch_assoc()) {
+                $article = new article($row["id"], $row["title"], $row["content"], $row["summary"], $row["author"], $row["date"], $row["thumbnail"]);
+                array_push($articles, $article);
+            }
+        }
+        return $articles;
+    }
+
     public function getArticles($MAX, $ASCORDESC)
     {
         $articles = array();
@@ -163,5 +177,14 @@ class database
         }
     }
 
-
+    public function modifyArticle($id, $title, $content, $summary, $img)
+    {
+        $sql = "UPDATE articles SET content = '$content', summary = '$summary', thumbnail = '$img', date = NOW(), title= '$title' WHERE id = '$id' ";
+        //echo $sql;
+        if ($this->connection->query($sql) === TRUE) {
+            return true;
+        } else {
+            return false;
+        }
+    }
 }

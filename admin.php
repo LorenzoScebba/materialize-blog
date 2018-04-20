@@ -25,7 +25,7 @@
                 <a class="btn waves-effect green" style="width: 100%;" href="createArticle.php"><b>CREATE</b> article</a>
             </div>
             <div class="col s6">
-                <a class="btn waves-effect orange" style="width: 100%;" href="" disabled=""><b>MODIFY</b> article</a>
+                <a class="btn waves-effect orange" style="width: 100%;" href="selectModifyArticle.php"><b>MODIFY</b> article</a>
             </div>
         </div>
         <div class="row">
