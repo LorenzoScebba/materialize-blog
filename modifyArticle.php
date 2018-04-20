@@ -38,7 +38,7 @@ $_SESSION["articleID"] = $_POST["id"];
             </div>
 
             <div class="row input-field">
-                <input type="text" placeholder="Article image" name="image" value="<?php echo $article->thumbnail?>">
+                <input type="text" placeholder="Article image" name="img" value="<?php echo $article->thumbnail?>">
             </div>
 
             <div class="row input-field">

@@ -6,8 +6,10 @@ A simple website capable of handling article creation, deletion, modify and upda
 
 - [x] Article Creation
 - [x] Article Delete
-- [ ] Article Modify
-- [ ] Article Update
+- [x] Article Modify
+- [ ] User Creation
+- [ ] User Deletion
+- [ ] User Modify
 
 # config.ini Template
 

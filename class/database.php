@@ -179,7 +179,7 @@ class database
 
     public function modifyArticle($id, $title, $content, $summary, $img)
     {
-        $sql = "UPDATE articles SET content = '$content', summary = '$summary', thumbnail = '$img', date = NOW(), title= '$title' WHERE id = '$id' ";
+        $sql = "UPDATE articles SET content = '$content', summary = '$summary', thumbnail = '$img', date = NOW(), title= '$title' WHERE id = $id ";
         //echo $sql;
         if ($this->connection->query($sql) === TRUE) {
             return true;
