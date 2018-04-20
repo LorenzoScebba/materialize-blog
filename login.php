@@ -1,6 +1,6 @@
 <?php
 session_start();
-$config = parse_ini_file($_SERVER['DOCUMENT_ROOT'] . "/config.ini");
+$config = parse_ini_file($_SERVER['DOCUMENT_ROOT'] . "/../private/config.ini");
 
 if (isset($_SESSION["username"]) || isset($_SESSION["isLoggedIn"])) {
     echo "You're already logged in, redirecting...";

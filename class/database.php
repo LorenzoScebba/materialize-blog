@@ -19,7 +19,7 @@ class database
      */
     public function __construct()
     {
-        $this->config = parse_ini_file($_SERVER['DOCUMENT_ROOT'] . "/config.ini");
+        $this->config = parse_ini_file($_SERVER['DOCUMENT_ROOT'] . "/../private/config.ini");
         $this->connection = mysqli_connect("", $this->config["username"], $this->config["password"], $this->config["dbname"]);
         $this->isConnectionOpen();
     }
