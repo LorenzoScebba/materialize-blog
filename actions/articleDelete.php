@@ -9,7 +9,7 @@
 ini_set('display_errors', 1);
 include '../class/database.php';
 include 'loggedInChecker.php';
-$config = parse_ini_file($_SERVER['DOCUMENT_ROOT'] . "/config.ini");
+$config = parse_ini_file($_SERVER['DOCUMENT_ROOT'] . "/../private/config.ini");
 
 $db = new database();
 

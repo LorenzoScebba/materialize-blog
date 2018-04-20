@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <?php
-$config = parse_ini_file($_SERVER['DOCUMENT_ROOT'] . "/config.ini");
-echo "<base href=\"" . $config["URL"] . "\">";
+$config = parse_ini_file($_SERVER['DOCUMENT_ROOT'] . "/../private/config.ini");
+echo "<base href=http://" . $config["URL"] . ">";
 ?>
 
 <link rel="stylesheet" type="text/css" href="css/404.css">

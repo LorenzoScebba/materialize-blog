@@ -25,10 +25,10 @@ $db = new database();
             if(isset($_GET["id"])) {
                 $article = $db->getArticle($_GET["id"]);
                 if (!$article instanceof article) {
-                    $article = new article("ERROR","ERROR","ERROR","ERROR","ERROR","ERROR");
+                    $article = new article("ERROR","ERROR","ERROR, no article found","ERROR","ERROR","ERROR","ERROR");
                 }
             }else{
-                $article = new article("ERROR","ERROR","ERROR","ERROR","ERROR","ERROR");
+                $article = new article("ERROR","ERROR","ERROR, no article found","ERROR","ERROR","ERROR","ERROR");
             }
         ?>
 
@@ -47,7 +47,7 @@ $db = new database();
         </div>
 
         <div class="row flow-text center-align">
-            <small class="right">Written by <?php echo $db->getAuthorInfos($article->autore) ?></small>
+            <small class="right">Written by <?php if($article->autore != "ERROR") echo $db->getAuthorInfos($article->autore) ?></small>
         </div>
 
     </div>

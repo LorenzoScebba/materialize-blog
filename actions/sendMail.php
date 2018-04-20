@@ -7,7 +7,7 @@
  */
 
 ini_set('display_errors', 1);
-$config = parse_ini_file($_SERVER['DOCUMENT_ROOT'] . "/config.ini");
+$config = parse_ini_file($_SERVER['DOCUMENT_ROOT'] . "/../private/config.ini");
 
 require '../vendor/autoload.php';
 
@@ -20,7 +20,7 @@ if (isset($_POST["from"]) && isset($_POST["subject"]) && isset($_POST["text"]) &
     $text = $_POST["text"];
 } else {
     echo "An Error occurred, form not filled correctly.";
-    echo "<meta http-equiv=\"refresh\" content=\"1;URL=".$config["URL"]."/index.php\">";
+    echo "<meta http-equiv=\"refresh\" content=\"1;URL=http://".$config["URL"]."/index.php\">";
     exit;
 }
 
@@ -39,10 +39,10 @@ try {
     ));
 } catch (Exception $e) {
     echo "An error occurred :  $e";
-    echo "<meta http-equiv=\"refresh\" content=\"1;URL=".$config["URL"]."/index.php\">";
+    echo "<meta http-equiv=\"refresh\" content=\"1;URL=http://".$config["URL"]."/index.php\">";
     exit;
 }
 
 echo "Mail has been sent!";
-echo "<meta http-equiv=\"refresh\" content=\"1;URL=".$config["URL"]."/index.php\">";
+echo "<meta http-equiv=\"refresh\" content=\"1;URL=http://".$config["URL"]."/index.php\">";
 
