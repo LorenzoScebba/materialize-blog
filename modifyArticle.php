@@ -23,7 +23,7 @@ $_SESSION["articleID"] = $_POST["id"];
     <div class="container">
         <!-- CONTENT GOES HERE  -->
         <form action="actions/articleModify.php" method="post">
-            
+
             <h4 class="center-align" style="margin-bottom: 1em; -webkit-margin-after: 1em">Article Modification</h4>
 
             <div class="row input-field">
@@ -84,6 +84,9 @@ $_SESSION["articleID"] = $_POST["id"];
                 <button class="btn waves-effect green" style="width: 100%" type="submit">Submit</button>
             </div>
         </form>
+        <div class="row input-field">
+            <a class="btn waves-effect darken-4 yellow" style="width: 100%" href="admin.php">Back</a>
+        </div>
     </div>
 </main>
 

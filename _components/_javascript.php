@@ -18,7 +18,7 @@
     });
 
 
-    elem = document.querySelector('.materialboxed');
-    instance = M.Materialbox.init(elem, options);
+    //elem = document.querySelector('.materialboxed');
+    //instance = M.Materialbox.init(elem, options);
 
 </script>
