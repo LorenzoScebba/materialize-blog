@@ -34,6 +34,9 @@ if(!$db->isConnectionOpen()){
             }
         }
         ?>
+        <div class="row input-field">
+            <a class="btn waves-effect darken-4 yellow" style="width: 100%" href="admin.php">Back</a>
+        </div>
     </div>
 </main>
 
