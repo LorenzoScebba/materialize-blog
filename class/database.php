@@ -159,6 +159,15 @@ class database
 
     public function createArticle($author, $title, $content, $summary, $img)
     {
+
+        $title = str_replace("\\","\\\\",$title);
+        $content = str_replace("\\","\\\\",$content);
+        $summary = str_replace("\\","\\\\",$summary);
+
+        $title = str_replace("'","\'",$title);
+        $content = str_replace("'","\'",$content);
+        $summary = str_replace("'","\'",$summary);
+
         $sql = "INSERT INTO articles(author, title, content, summary, date, thumbnail) VALUES ('$author','$title','$content','$summary',NOW(),'$img')";
 
         if ($this->connection->query($sql) === TRUE) {
@@ -179,6 +188,16 @@ class database
 
     public function modifyArticle($id, $title, $content, $summary, $img)
     {
+        $title = str_replace("\\","\\\\",$title);
+        $content = str_replace("\\","\\\\",$content);
+        $summary = str_replace("\\","\\\\",$summary);
+
+        $title = str_replace("'","\'",$title);
+        $content = str_replace("'","\'",$content);
+        $summary = str_replace("'","\'",$summary);
+
+        $img = "img/" . $img;
+
         $sql = "UPDATE articles SET content = '$content', summary = '$summary', thumbnail = '$img', date = NOW(), title= '$title' WHERE id = $id ";
         //echo $sql;
         if ($this->connection->query($sql) === TRUE) {
