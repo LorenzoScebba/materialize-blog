@@ -34,12 +34,23 @@ include_once 'actions/loggedInChecker.php';
             </div>
 
             <div class="row input-field">
-                <input type="text" placeholder="Article image" name="img">
+                <select name="img">
+                    <?php
+                    $dir = $_SERVER['DOCUMENT_ROOT'] . "/img";
+                    $items = array_diff(scandir($dir), array('..', '.'));
+
+                    foreach ($items as $item) {
+                        echo $item;
+                        echo "<option value=\"$item\">$item</option>";
+                    }
+                    ?>
+                </select>
             </div>
 
             <div class="row input-field">
                 <div class="col s6">
-                    <textarea id="textarea" name="content" placeholder="Article content" class="materialize-textarea"></textarea>
+                    <textarea id="textarea" name="content" placeholder="Article content"
+                              class="materialize-textarea"></textarea>
                 </div>
                 <div class="col s6">
                     Article Preview

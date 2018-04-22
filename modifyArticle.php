@@ -23,6 +23,7 @@ $_SESSION["articleID"] = $_POST["id"];
     <div class="container">
         <!-- CONTENT GOES HERE  -->
         <form action="actions/articleModify.php" method="post">
+            
             <h4 class="center-align" style="margin-bottom: 1em; -webkit-margin-after: 1em">Article Modification</h4>
 
             <div class="row input-field">
@@ -38,7 +39,17 @@ $_SESSION["articleID"] = $_POST["id"];
             </div>
 
             <div class="row input-field">
-                <input type="text" placeholder="Article image" name="img" value="<?php echo $article->thumbnail?>">
+                <select name="img">
+                    <?php
+                    $dir = $_SERVER['DOCUMENT_ROOT'] . "/img";
+                    $items = array_diff(scandir($dir), array('..', '.'));
+
+                    foreach ($items as $item) {
+                        echo $item;
+                        echo "<option value=\"$item\">$item</option>";
+                    }
+                    ?>
+                </select>
             </div>
 
             <div class="row input-field">

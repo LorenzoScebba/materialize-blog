@@ -24,8 +24,8 @@ MailGunKey = YOUR-MAILGUN-KEY\
 MailGunDomain = YOUR-MAILGUN-DOMAIN
 
 [Site]\
-URL = YOUR-WEBSITE-URL *Without https://*
+URL = YOUR-WEBSITE-URL (*Without https:// or http://*)
 
 [Crypt]\
-salt = YOUR-SALT
+salt = YOUR-SALT (*A strong salt is recommended*)
 
