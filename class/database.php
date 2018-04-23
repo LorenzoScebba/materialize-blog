@@ -206,4 +206,22 @@ class database
             return false;
         }
     }
+
+    public function createUser($name,$surname,$bio,$nickname,$password){
+        $sql = "INSERT INTO authors(name, surname, nickname, password, bio) VALUES ('$name','$surname','$nickname','$password','$bio')";
+        if($this->connection->query($sql) === true){
+            return true;
+        }else{
+            return false;
+        }
+    }
+
+    public function deleteUser($id){
+        $sql = "DELETE FROM authors WHERE id = $id";
+        if($this->connection->query($sql) === true){
+            return true;
+        }else{
+            return false;
+        }
+    }
 }

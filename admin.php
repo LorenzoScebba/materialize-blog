@@ -46,7 +46,7 @@ include_once 'actions/loggedInChecker.php';
 
         <div class="row">
             <div class="col s6">
-                <a class="btn waves-effect green disabled" style="width: 100%;" href=""><b>CREATE</b> user</a>
+                <a class="btn waves-effect green" style="width: 100%;" href="createUser.php"><b>CREATE</b> user</a>
             </div>
             <div class="col s6">
                 <a class="btn waves-effect orange disabled" style="width: 100%;" href=""><b>MODIFY</b> user</a>
