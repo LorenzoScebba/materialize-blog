@@ -1,6 +1,8 @@
 <?php
+//ini_set('display_errors', 1);
 include_once 'actions/loggedInChecker.php';
 include_once 'class/database.php';
+
 $db = new database();
 $article = $db->getArticle($_POST["id"]);
 $_SESSION["articleID"] = $_POST["id"];
@@ -27,15 +29,16 @@ $_SESSION["articleID"] = $_POST["id"];
             <h4 class="center-align" style="margin-bottom: 1em; -webkit-margin-after: 1em">Article Modification</h4>
 
             <div class="row input-field">
-                <input type="text" placeholder="Article name" name="title" value="<?php echo $article->titolo?>">
+                <input type="text" placeholder="Article name" name="title" value="<?php echo $article->titolo ?>">
             </div>
 
             <div class="row input-field">
-                <input type="text" placeholder="Article author" name="autore" value="<?php echo $db->getAuthorInfos($article->autore)?>">
+                <input type="text" placeholder="Article author" name="autore"
+                       value="<?php echo $db->getAuthorInfos($article->autore) ?>">
             </div>
 
             <div class="row input-field">
-                <input type="text" placeholder="Article summary" name="summary" value="<?php echo $article->summary?>">
+                <input type="text" placeholder="Article summary" name="summary" value="<?php echo $article->summary ?>">
             </div>
 
             <div class="row input-field">
@@ -45,8 +48,11 @@ $_SESSION["articleID"] = $_POST["id"];
                     $items = array_diff(scandir($dir), array('..', '.'));
 
                     foreach ($items as $item) {
-                        echo $item;
-                        echo "<option value=\"$item\">$item</option>";
+                        //echo $item;
+                        if ("img/" . $item == $article->thumbnail)
+                            echo "<option value=\"$item\" selected>$item</option>";
+                        else
+                            echo "<option value=\"$item\">$item</option>";
                     }
                     ?>
                 </select>
@@ -54,7 +60,8 @@ $_SESSION["articleID"] = $_POST["id"];
 
             <div class="row input-field">
                 <div class="col s6">
-                    <textarea id="textarea" name="content" placeholder="Article content" class="materialize-textarea"><?php echo $article->contenuto?></textarea>
+                    <textarea id="textarea" name="content" placeholder="Article content"
+                              class="materialize-textarea"><?php echo $article->contenuto ?></textarea>
                 </div>
                 <div class="col s6">
                     Article Preview
