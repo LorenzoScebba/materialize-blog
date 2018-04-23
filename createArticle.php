@@ -1,5 +1,8 @@
 <?php
 include_once 'actions/loggedInChecker.php';
+ini_set('display_errors',1);
+include_once 'class/database.php';
+$db = new database();
 ?>
 
 <!DOCTYPE html>
@@ -26,7 +29,17 @@ include_once 'actions/loggedInChecker.php';
             </div>
 
             <div class="row input-field">
-                <input type="text" placeholder="Article author" name="autore">
+                <select name="autore">
+                    <?php
+                    //<input type="text" placeholder="Article author" name="autore">
+                    $authors = $db->getAuthors();
+
+                    foreach ($authors as $author) {
+                        $name = $db->getAuthorInfos($author);
+                        echo "<option value=\"$name\">$name</option>";
+                    }
+                    ?>
+                </select>
             </div>
 
             <div class="row input-field">

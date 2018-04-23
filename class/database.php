@@ -135,6 +135,15 @@ class database
         }
     }
 
+    public function getAuthors(){
+        $result = $this->connection->query("Select * from authors where 1");
+        $authorsIds = array();
+        while($row = $result->fetch_assoc()){
+            array_push($authorsIds,$row["id"]);
+        }
+        return $authorsIds;
+    }
+
     public function getAuthorInfos($id)
     {
         $result = $this->connection->query("SELECT * FROM authors where id = $id");

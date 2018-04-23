@@ -33,8 +33,21 @@ $_SESSION["articleID"] = $_POST["id"];
             </div>
 
             <div class="row input-field">
-                <input type="text" placeholder="Article author" name="autore"
-                       value="<?php echo $db->getAuthorInfos($article->autore) ?>">
+                <select name="autore">
+                    <?php
+                    //<input type="text" placeholder="Article author" name="autore">
+                    $authors = $db->getAuthors();
+
+                    foreach ($authors as $author) {
+                        $name = $db->getAuthorInfos($author);
+                        if($name == $article->autore) {
+                            echo "<option value=\"$name\" selected>$name</option>";
+                        }else{
+                            echo "<option value=\"$name\">$name</option>";
+                        }
+                    }
+                    ?>
+                </select>
             </div>
 
             <div class="row input-field">
