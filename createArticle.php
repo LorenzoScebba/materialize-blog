@@ -80,6 +80,7 @@ include_once 'actions/loggedInChecker.php';
                 <button class="btn waves-effect green" style="width: 100%" type="submit">Submit</button>
             </div>
         </form>
+        <hr>
         <div class="row input-field">
             <a class="btn waves-effect darken-4 yellow" style="width: 100%" href="admin.php">Back</a>
         </div>
