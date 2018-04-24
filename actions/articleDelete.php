@@ -21,4 +21,4 @@ if ($db->deleteArticle($id))
 else
     echo "failed";
 
-echo "<meta http-equiv=\"refresh\" content=\"1;URL=http://".$config["URL"]."\">";
+header("Location: http://".$config['URL']);

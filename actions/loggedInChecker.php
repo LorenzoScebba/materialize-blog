@@ -12,7 +12,7 @@ $config = parse_ini_file($_SERVER['DOCUMENT_ROOT'] . "/../cgi-bin/config.ini");
 
 if (!isset($_SESSION["username"]) || !isset($_SESSION["isLoggedIn"])) {
     echo "You're currently not logged in, redirecting...";
-    echo "<meta http-equiv=\"refresh\" content=\"1;URL=http://".$config["URL"]."\">";
+    header("Location: http://".$config['URL']);
     exit();
 } else {
     $username = $_SESSION["username"];

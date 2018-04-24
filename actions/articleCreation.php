@@ -24,7 +24,7 @@ if(isset($_POST["title"]) && isset($_POST["summary"]) && isset($_POST["content"]
     }
 }else{
     echo "Parameters not found";
-    echo "<meta http-equiv=\"refresh\" content=\"1;URL=http://".$config["URL"]."\">";
+    header("Location: http://".$config['URL']);
     exit;
 }
 
@@ -51,4 +51,4 @@ if($db->createArticle($idAutore,$title,$content,$summary,$img)){
 }else{
     echo "error";
 }
-echo "<meta http-equiv=\"refresh\" content=\"1;URL=http://".$config["URL"]."\">";
+header("Location: http://".$config['URL']);

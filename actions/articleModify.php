@@ -24,7 +24,7 @@ if(isset($_POST["title"]) && isset($_POST["summary"]) && isset($_POST["content"]
     }
 }else{
     echo "Parameters not found";
-    echo "<meta http-equiv=\"refresh\" content=\"1;URL=http://".$config["URL"]."\">";
+    header("Location: http://".$config['URL']);
     exit;
 }
 
@@ -52,4 +52,4 @@ if($db->modifyArticle($_SESSION["articleID"], $title, $content, $summary, $img))
     echo "error";
 }
 $_SESSION["articleID"] = null;
-echo "<meta http-equiv=\"refresh\" content=\"1;URL=http://".$config["URL"]."\">";
+header("Location: http://".$config['URL']);

@@ -1,10 +1,10 @@
 <?php if (session_status() == PHP_SESSION_NONE) {     session_start(); } ?>
 
-<!--<div class="preloader-background">-->
-<!--    <div class="progress grey" style="width: 50%">-->
-<!--        <div class="indeterminate red"></div>-->
-<!--    </div>-->
-<!--</div>-->
+<div class="preloader-background">
+    <div class="progress grey" style="width: 50%">
+        <div class="indeterminate red"></div>
+    </div>
+</div>
 
 <!-- Dropdown Structure -->
 <ul id="dropdown1" class="dropdown-content">
