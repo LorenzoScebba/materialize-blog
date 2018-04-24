@@ -33,5 +33,5 @@ salt = YOUR-SALT (*A strong salt is recommended*)
 
 You should place the config.ini file inside a private directory.\
 Example :
-1. C:\xampp\private\config.ini
-2. /var/www/private
+1. C:\xampp\cgi-bin\config.ini
+2. /var/www/cgi-bin
