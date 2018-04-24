@@ -46,9 +46,10 @@ if($idAutore == false){
 
 
 
-if($db->createArticle($idAutore,$title,$content,$summary,$img)){
-    echo "article created";
+if($db->modifyArticle($_SESSION["articleID"], $title, $content, $summary, $img)){
+    echo "article modified";
 }else{
     echo "error";
 }
+$_SESSION["articleID"] = null;
 echo "<meta http-equiv=\"refresh\" content=\"1;URL=http://".$config["URL"]."\">";

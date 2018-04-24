@@ -12,7 +12,7 @@ if(!$db->isConnectionOpen()){
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Welcome!</title>
+    <title>Cancella Articolo</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <?php include '_components/_css.php' ?>
@@ -34,6 +34,9 @@ if(!$db->isConnectionOpen()){
             }
         }
         ?>
+        <div class="row input-field">
+            <a class="btn waves-effect darken-4 yellow" style="width: 100%" href="admin.php">Back</a>
+        </div>
     </div>
 </main>
 

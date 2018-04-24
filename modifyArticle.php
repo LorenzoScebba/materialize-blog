@@ -1,14 +1,17 @@
 <?php
+//ini_set('display_errors', 1);
 include_once 'actions/loggedInChecker.php';
-ini_set('display_errors',1);
 include_once 'class/database.php';
+
 $db = new database();
+$article = $db->getArticle($_POST["id"]);
+$_SESSION["articleID"] = $_POST["id"];
 ?>
 
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Crea Articolo</title>
+    <title>Modifica Articolo</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <?php include '_components/_css.php' ?>
@@ -21,11 +24,12 @@ $db = new database();
 <main id="main">
     <div class="container">
         <!-- CONTENT GOES HERE  -->
-        <form action="actions/articleCreation.php" method="post">
-            <h4 class="center-align" style="margin-bottom: 1em; -webkit-margin-after: 1em">Article Creation</h4>
+        <form action="actions/articleModify.php" method="post">
+
+            <h4 class="center-align" style="margin-bottom: 1em; -webkit-margin-after: 1em">Article Modification</h4>
 
             <div class="row input-field">
-                <input type="text" placeholder="Article name" name="title">
+                <input type="text" placeholder="Article name" name="title" value="<?php echo $article->titolo ?>">
             </div>
 
             <div class="row input-field">
@@ -36,14 +40,18 @@ $db = new database();
 
                     foreach ($authors as $author) {
                         $name = $db->getAuthorInfos($author);
-                        echo "<option value=\"$name\">$name</option>";
+                        if($name == $article->autore) {
+                            echo "<option value=\"$name\" selected>$name</option>";
+                        }else{
+                            echo "<option value=\"$name\">$name</option>";
+                        }
                     }
                     ?>
                 </select>
             </div>
 
             <div class="row input-field">
-                <input type="text" placeholder="Article summary" name="summary">
+                <input type="text" placeholder="Article summary" name="summary" value="<?php echo $article->summary ?>">
             </div>
 
             <div class="row input-field">
@@ -53,8 +61,11 @@ $db = new database();
                     $items = array_diff(scandir($dir), array('..', '.'));
 
                     foreach ($items as $item) {
-                        echo $item;
-                        echo "<option value=\"$item\">$item</option>";
+                        //echo $item;
+                        if ("img/" . $item == $article->thumbnail)
+                            echo "<option value=\"$item\" selected>$item</option>";
+                        else
+                            echo "<option value=\"$item\">$item</option>";
                     }
                     ?>
                 </select>
@@ -63,7 +74,7 @@ $db = new database();
             <div class="row input-field">
                 <div class="col s6">
                     <textarea id="textarea" name="content" placeholder="Article content"
-                              class="materialize-textarea"></textarea>
+                              class="materialize-textarea"><?php echo $article->contenuto ?></textarea>
                 </div>
                 <div class="col s6">
                     Article Preview

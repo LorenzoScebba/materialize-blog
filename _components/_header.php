@@ -1,4 +1,4 @@
-<?php session_start(); ?>
+<?php if (session_status() == PHP_SESSION_NONE) {     session_start(); } ?>
 
 <!--<div class="preloader-background">-->
 <!--    <div class="progress grey" style="width: 50%">-->
@@ -20,7 +20,7 @@
 
 <nav style="-webkit-margin-after: 1.5em; margin-bottom: 1.5em">
     <div class="nav-wrapper lighten-3 container">
-        <a href="../index.php" class="brand-logo">Lorenzo Scebba's blog</a>
+        <a href="../index.php" class="brand-logo">Materialize CSS blog</a>
         <ul class="right">
             <li><a class="hide-on-med-and-down" href="../contatti.php">Contatti</a></li>
             <?php

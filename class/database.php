@@ -19,7 +19,7 @@ class database
      */
     public function __construct()
     {
-        $this->config = parse_ini_file($_SERVER['DOCUMENT_ROOT'] . "/../private/config.ini");
+        $this->config = parse_ini_file($_SERVER['DOCUMENT_ROOT'] . "/../cgi-bin/config.ini");
         $this->connection = mysqli_connect("", $this->config["username"], $this->config["password"], $this->config["dbname"]);
         $this->isConnectionOpen();
     }
@@ -35,6 +35,20 @@ class database
         } else {
             return true;
         }
+    }
+
+    public function getAllArticles()
+    {
+        $articles = array();
+
+        $result = $this->connection->query("SELECT * FROM articles WHERE 1");
+        if ($result->num_rows > 0) {
+            while ($row = $result->fetch_assoc()) {
+                $article = new article($row["id"], $row["title"], $row["content"], $row["summary"], $row["author"], $row["date"], $row["thumbnail"]);
+                array_push($articles, $article);
+            }
+        }
+        return $articles;
     }
 
     public function getArticles($MAX, $ASCORDESC)
@@ -121,6 +135,15 @@ class database
         }
     }
 
+    public function getAuthors(){
+        $result = $this->connection->query("Select * from authors where 1");
+        $authorsIds = array();
+        while($row = $result->fetch_assoc()){
+            array_push($authorsIds,$row["id"]);
+        }
+        return $authorsIds;
+    }
+
     public function getAuthorInfos($id)
     {
         $result = $this->connection->query("SELECT * FROM authors where id = $id");
@@ -145,6 +168,15 @@ class database
 
     public function createArticle($author, $title, $content, $summary, $img)
     {
+
+        $title = str_replace("\\","\\\\",$title);
+        $content = str_replace("\\","\\\\",$content);
+        $summary = str_replace("\\","\\\\",$summary);
+
+        $title = str_replace("'","\'",$title);
+        $content = str_replace("'","\'",$content);
+        $summary = str_replace("'","\'",$summary);
+
         $sql = "INSERT INTO articles(author, title, content, summary, date, thumbnail) VALUES ('$author','$title','$content','$summary',NOW(),'$img')";
 
         if ($this->connection->query($sql) === TRUE) {
@@ -163,5 +195,42 @@ class database
         }
     }
 
+    public function modifyArticle($id, $title, $content, $summary, $img)
+    {
+        $title = str_replace("\\","\\\\",$title);
+        $content = str_replace("\\","\\\\",$content);
+        $summary = str_replace("\\","\\\\",$summary);
 
+        $title = str_replace("'","\'",$title);
+        $content = str_replace("'","\'",$content);
+        $summary = str_replace("'","\'",$summary);
+
+        $img = "img/" . $img;
+
+        $sql = "UPDATE articles SET content = '$content', summary = '$summary', thumbnail = '$img', date = NOW(), title= '$title' WHERE id = $id ";
+        //echo $sql;
+        if ($this->connection->query($sql) === TRUE) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    public function createUser($name,$surname,$bio,$nickname,$password){
+        $sql = "INSERT INTO authors(name, surname, nickname, password, bio) VALUES ('$name','$surname','$nickname','$password','$bio')";
+        if($this->connection->query($sql) === true){
+            return true;
+        }else{
+            return false;
+        }
+    }
+
+    public function deleteUser($id){
+        $sql = "DELETE FROM authors WHERE id = $id";
+        if($this->connection->query($sql) === true){
+            return true;
+        }else{
+            return false;
+        }
+    }
 }

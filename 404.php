@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <?php
-$config = parse_ini_file($_SERVER['DOCUMENT_ROOT'] . "/../private/config.ini");
+$config = parse_ini_file($_SERVER['DOCUMENT_ROOT'] . "/../cgi-bin/config.ini");
 echo "<base href=http://" . $config["URL"] . ">";
 ?>
 
