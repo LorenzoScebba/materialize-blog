@@ -34,7 +34,7 @@ if (isset($_GET["id"])) {
         if (session_status() == PHP_SESSION_NONE) {
             session_start();
         }
-        $config = parse_ini_file($_SERVER['DOCUMENT_ROOT'] . "/../private/config.ini");
+        $config = parse_ini_file($_SERVER['DOCUMENT_ROOT'] . "/../cgi-bin/config.ini");
 
         if (isset($_SESSION["username"]) && isset($_SESSION["isLoggedIn"])) {
             echo "<div class='row'><form action='modifyArticle.php' method='post'><button class='btn red waves-effect waves-light right' name='id' type='submit' value='$article->id'>Edit</button></form></div>";

@@ -5,7 +5,7 @@
  * Date: 17/04/18
  * Time: 10.48
  */
-$config = parse_ini_file($_SERVER['DOCUMENT_ROOT'] . "/../private/config.ini");
+$config = parse_ini_file($_SERVER['DOCUMENT_ROOT'] . "/../cgi-bin/config.ini");
 if (session_status() == PHP_SESSION_NONE) {     session_start(); }
 session_reset();
 session_destroy();

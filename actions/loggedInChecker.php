@@ -8,7 +8,7 @@
 
 
 if (session_status() == PHP_SESSION_NONE) {     session_start(); }
-$config = parse_ini_file($_SERVER['DOCUMENT_ROOT'] . "/../private/config.ini");
+$config = parse_ini_file($_SERVER['DOCUMENT_ROOT'] . "/../cgi-bin/config.ini");
 
 if (!isset($_SESSION["username"]) || !isset($_SESSION["isLoggedIn"])) {
     echo "You're currently not logged in, redirecting...";

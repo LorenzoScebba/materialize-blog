@@ -8,7 +8,7 @@
 
 if (session_status() == PHP_SESSION_NONE) {     session_start(); }
 include '../class/database.php';
-$config = parse_ini_file($_SERVER['DOCUMENT_ROOT'] . "/../private/config.ini");
+$config = parse_ini_file($_SERVER['DOCUMENT_ROOT'] . "/../cgi-bin/config.ini");
 
 if (is_null($_POST["username"]) || is_null($_POST["password"])) {
     echo "Error, username or password empty";
