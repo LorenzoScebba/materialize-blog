@@ -39,11 +39,11 @@ if ($db->userExist($username, $password)) {
     //echo "user does not exist";
     if ($db->nickameExist($username)) {
         echo "Wrong password, redirecting...";
-        echo "<meta http-equiv=\"refresh\" content=\"1;URL=http://".$config["URL"]."/login.php\">";
+        header("Location: http://".$config['URL']);
         exit();
     } else {
         echo "User not present in db, redirecting...";
-        echo "<meta http-equiv=\"refresh\" content=\"1;URL=http://".$config["URL"]."/login.php\">";
+        header("Location: http://".$config['URL']);
         exit();
     }
 }

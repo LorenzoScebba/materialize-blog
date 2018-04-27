@@ -24,7 +24,7 @@ if (isset($_POST["name"]) && isset($_POST["surname"]) && isset($_POST["bio"]) &&
     $password = password_hash($_POST["password"], PASSWORD_BCRYPT, $options);
 } else {
     echo "Parameters not found";
-    echo "<meta http-equiv=\"refresh\" content=\"1;URL=http://" . $config["URL"] . "\">";
+    header("Location: http://".$config['URL']);
     exit;
 }
 
@@ -38,4 +38,4 @@ if($db->createUser($name,$surname,$bio,$nickname,$password) === true){
 }else{
     echo "error";
 }
-echo "<meta http-equiv=\"refresh\" content=\"1;URL=http://" . $config["URL"] . "\">";
+header("Location: http://".$config['URL']);

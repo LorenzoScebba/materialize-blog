@@ -7,7 +7,7 @@ A simple website capable of handling article creation, deletion and modify
 - [x] Article Creation
 - [x] Article Delete
 - [x] Article Modify
-- [ ] User Creation
+- [x] User Creation
 - [ ] User Deletion
 - [ ] User Modify
 
@@ -16,7 +16,7 @@ A simple website capable of handling article creation, deletion and modify
 [database]\
 servername = localhost\
 username = YOUR-DATABASE-USERNAME\
-password = YOUR-DATABASE-PASSWOD\
+password = YOUR-DATABASE-PASSWORD\
 dbname = YOUR-DATABASE-NAME
 
 [MailGun]\
@@ -28,6 +28,9 @@ URL = YOUR-WEBSITE-URL (*Without https:// or http://*)
 
 [Crypt]\
 salt = YOUR-SALT (*A strong salt is recommended*)
+
+[Tokens]
+token = YOUR-TOKEN ;This is used to gain admin privileges on some scripts;
 
 ## Info
 
