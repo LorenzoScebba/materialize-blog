@@ -12,6 +12,7 @@ $config = parse_ini_file($_SERVER['DOCUMENT_ROOT'] . "/../cgi-bin/config.ini");
 
 function generateRandomString($length = 10) {
     return substr(str_shuffle(str_repeat($x='0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ', ceil($length/strlen($x)) )),1,$length);
+    //Thanks https://stackoverflow.com/users/967955/pr07o7yp3
 }
 
 if(!is_null($config["token"]) && isset($config["token"])){

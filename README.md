@@ -14,7 +14,7 @@ A simple website capable of handling article creation, deletion and modify
 # config.ini Template
 
 [database]\
-servername = localhost\
+servername = YOUR-HOSTNAME (*Example : localhost*)\
 username = YOUR-DATABASE-USERNAME\
 password = YOUR-DATABASE-PASSWORD\
 dbname = YOUR-DATABASE-NAME
@@ -38,3 +38,5 @@ You should place the config.ini file inside a private directory.\
 Example :
 1. C:\xampp\cgi-bin\config.ini
 2. /var/www/cgi-bin
+
+If you want to rename the cgi-bin folder you'll have to change every php file where the config.ini file is used.
