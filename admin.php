@@ -54,7 +54,7 @@ include_once 'actions/loggedInChecker.php';
         </div>
         <div class="row">
             <div class="col s12">
-                <a class="btn waves-effect red disabled" style="width: 100%;" href=""><b>DELETE</b> user</a>
+                <a class="btn waves-effect red " style="width: 100%;" href="deleteUser.php"><b>DELETE</b> user</a>
             </div>
         </div>
 
