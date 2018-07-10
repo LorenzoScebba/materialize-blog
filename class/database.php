@@ -166,6 +166,17 @@ class database
         }
     }
 
+    public function getAuthorIdFromNickname($nickname)
+    {
+        $result = $this->connection->query("SELECT * FROM authors where nickname = '$nickname'");
+        if ($result->num_rows > 0) {
+            $row = $result->fetch_assoc();
+            return $row["id"];
+        } else {
+            return false;
+        }
+    }
+
     public function createArticle($author, $title, $content, $summary, $img)
     {
 
